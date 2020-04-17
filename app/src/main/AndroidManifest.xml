@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".wrongPassword"></activity>
-        <activity android:name=".homeTest" />
+        <activity android:name=".inviteFriend"></activity>
+        <activity android:name=".listAgain" />
+        <activity android:name=".item1" />
+        <activity android:name=".homePage" />
+        <activity android:name=".confirm" />
+        <activity android:name=".firstList" />
+        <activity android:name=".selectEvent" />
+        <activity android:name=".createSecond" />
+        <activity android:name=".createFirst" />
         <activity android:name=".createAccount" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".onStartActivity" />

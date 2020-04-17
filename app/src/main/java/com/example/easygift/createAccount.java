@@ -4,22 +4,31 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+import com.google.firebase.firestore.*;
 
 import android.view.View;
 import android.widget.TextView;
 import android.text.TextUtils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class createAccount extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth auth;
+    private FirebaseFirestore database;
 
+    private TextView nameText;
+    private String name;
+    private String em;
     private TextView emailText;
     private TextView passText;
 
@@ -28,39 +37,58 @@ public class createAccount extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
+        nameText = findViewById(R.id.editText3);
         emailText = findViewById(R.id.editText5);
         passText = findViewById(R.id.editText6);
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseFirestore.getInstance();
     }
 
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.button3) {
-            createAccount(emailText.getText().toString(), passText.getText().toString());
+            createAccount(emailText.getText().toString(), passText.getText().toString(), nameText.getText().toString());
         }
     }
 
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, String password, String nam) {
         if (!validateForm()) {
             return;
         }
-
+        name = nam;
+        em = email;
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful())
                         {
-                            FirebaseUser user = auth.getCurrentUser();
-                            Intent test = new Intent(createAccount.this, homeTest.class);
-                            startActivity(test);
+                            User user = new User(name, em);
+                            database.collection("Users").document(name).set(user, SetOptions.merge());
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent create1 = new Intent(createAccount.this, createFirst.class);
+                                    create1.putExtra("name", name);
+                                    startActivity(create1);
+                                    finish();
+                                }
+                            }, 5000);
+
                         }
                         else
                         {
-                            Intent test2 = new Intent(createAccount.this, wrongPassword.class);
-                            startActivity(test2);
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent create1 = new Intent(createAccount.this, createFirst.class);
+                                    create1.putExtra("name", name);
+                                    startActivity(create1);
+                                    finish();
+                                }
+                            }, 5000);
                         }
                     }
                 });

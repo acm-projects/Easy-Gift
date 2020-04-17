@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E1C21"
+    tools:context=".listAgain">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061"
+        app:srcCompat="@drawable/nowcreateyourownwishlist" />
+
+    <LinearLayout
+        android:layout_width="363dp"
+        android:layout_height="502dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wish1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_35"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="412dp"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_59"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_60"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view8"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_61"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view9"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_62"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view10"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/wish6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_63"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view11"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_64"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view12"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_65"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view13"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_66"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view14"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <TextView
+                        android:id="@+id/wish10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_67"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view15"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                    <Button
+                        android:id="@+id/finishButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/group_68"
+                        android:text="Done"
+                        android:gravity="center"
+                        android:onClick="onClick"/>
+
+                    <View
+                        android:id="@+id/view16"
+                        android:layout_width="match_parent"
+                        android:layout_height="7dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

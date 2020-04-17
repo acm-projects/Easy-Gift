@@ -12,7 +12,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.TextView;
 import android.text.TextUtils;
@@ -23,6 +22,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private TextView emailText;
     private TextView passText;
+
+    private String em;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +41,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser curUser = auth.getCurrentUser();
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
-        // SHOW HOME SCREEN
+        // SHOW HOME SCREEN HERE
+
     }
 
     @Override
@@ -68,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     {
         if (!validateForm())
             return;
-
+        em = email;
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this,
                 new OnCompleteListener<AuthResult>() {
                     @Override
@@ -76,14 +69,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     {
                         if (task.isSuccessful())
                         {
-                            FirebaseUser user = auth.getCurrentUser();
-                            Intent test = new Intent(LoginActivity.this, homeTest.class);
-                            startActivity(test);
+                            Intent goHome = new Intent(LoginActivity.this, homePage.class);
+                            goHome.putExtra("email", em);
+                            goHome.putExtra("check", "false");
+                            startActivity(goHome);
                         }
                         else
                         {
-                            Intent test2 = new Intent(LoginActivity.this, wrongPassword.class);
-                            startActivity(test2);
+                            // Show password was incorrect and try again
                         }
                     }
                 });
