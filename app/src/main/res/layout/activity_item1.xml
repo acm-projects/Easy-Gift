@@ -104,6 +104,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36" />
 
+    <EditText
+        android:id="@+id/priceField"
+        android:layout_width="275dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Priority Here"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textColorHighlight="#EF7F7E"
+        android:textSize="30dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.26" />
+
     <Button
         android:id="@+id/doneButton"
         android:layout_width="50dp"

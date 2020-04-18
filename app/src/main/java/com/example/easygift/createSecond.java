@@ -25,6 +25,6 @@ public class createSecond extends AppCompatActivity {
                 startActivity(select);
                 finish();
             }
-        }, 5000);
+        }, 4000);
     }
 }

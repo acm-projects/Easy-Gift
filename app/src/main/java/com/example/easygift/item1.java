@@ -13,13 +13,15 @@ import android.view.View;
 import android.content.Intent;
 
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.*;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import com.google.firebase.storage.*;
 
 public class item1 extends AppCompatActivity implements View.OnClickListener{
@@ -31,10 +33,12 @@ public class item1 extends AppCompatActivity implements View.OnClickListener{
     private String first;
     private String[] arr;
     private String[] arr2;
+    private int[] arr3;
 
     private String item;
     private String link;
     private String eventName;
+    private int price;
 
     private ImageView img;
 
@@ -55,6 +59,7 @@ public class item1 extends AppCompatActivity implements View.OnClickListener{
         arr = getIntent().getStringArrayExtra("arr");
         arr2 = getIntent().getStringArrayExtra("arr2");
         eventName = getIntent().getStringExtra("event");
+        arr3 = getIntent().getIntArrayExtra("arr3");
     }
 
     private void storeData()
@@ -67,40 +72,33 @@ public class item1 extends AppCompatActivity implements View.OnClickListener{
         final String link2 = text2.getText().toString();
         link = link2;
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            Bitmap bitmap = getPath(data.getData());
-            img.setImageBitmap(bitmap);
-
-            StorageReference storageRef = storage.getReference();
-            StorageReference imgRef = storageRef.child("images/"+ data.getData().getLastPathSegment());
-
-            Bitmap map = ((BitmapDrawable) img.getDrawable()).getBitmap();
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            byte[] dat = baos.toByteArray();
-
-            UploadTask uploadTask = imgRef.putBytes(dat);
+        TextView text3 = findViewById(R.id.priceField);
+        if (!(text3.getText().toString().isEmpty()))
+        {
+            price = Integer.parseInt(text3.getText().toString());
+        }
+        else
+        {
+            price = 99;
         }
     }
 
-    private Bitmap getPath(Uri uri) {
+    @Override
+    protected void onActivityResult(int reqCode, int resultCode, Intent data) {
+        super.onActivityResult(reqCode, resultCode, data);
+        ImageView img = findViewById(R.id.imageField);
+        if (resultCode == RESULT_OK) {
+            try {
+                final Uri imageUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                img.setImageBitmap(selectedImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
-        String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        int column_index = cursor
-                .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String filePath = cursor.getString(column_index);
-        // cursor.close();
-        // Convert file path into bitmap image using below line.
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-
-        return bitmap;
+        }else {
+        }
     }
 
     @Override
@@ -109,10 +107,9 @@ public class item1 extends AppCompatActivity implements View.OnClickListener{
         int id = v.getId();
         if (id == R.id.imageField)
         {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            startActivityForResult(photoPickerIntent, 1);
         }
         if (id == R.id.doneButton)
         {
@@ -126,8 +123,10 @@ public class item1 extends AppCompatActivity implements View.OnClickListener{
             int ind = Integer.parseInt(a);
             arr[ind - 1] = item;
             arr2[ind - 1] = link;
+            arr3[ind - 1] = price;
             again.putExtra("arr", arr);
             again.putExtra("arr2", arr2);
+            again.putExtra("arr3", arr3);
             startActivity(again);
         }
     }

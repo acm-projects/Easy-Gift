@@ -75,7 +75,7 @@ public class createAccount extends AppCompatActivity implements View.OnClickList
                                     startActivity(create1);
                                     finish();
                                 }
-                            }, 5000);
+                            }, 4000);
 
                         }
                         else

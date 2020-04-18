@@ -29,6 +29,6 @@ public class confirm extends AppCompatActivity {
                 startActivity(done);
                 finish();
             }
-        }, 5000);
+        }, 4000);
     }
 }

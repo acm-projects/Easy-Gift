@@ -20,6 +20,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
     private String item2;
     private String[] arr;
     private String[] arr2;
+    private int[] arr3;
     private String eventName;
 
     @Override
@@ -31,10 +32,51 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
         arr = getIntent().getStringArrayExtra("arr");
         a = getIntent().getStringExtra("num");
         arr2 = getIntent().getStringArrayExtra("arr2");
+        arr3 = getIntent().getIntArrayExtra("arr3");
         eventName = getIntent().getStringExtra("event");
+        sortArray();
         changeTitle();
 
         database = FirebaseFirestore.getInstance();
+    }
+
+    public void sortArray()
+    {
+        if (arr[1] != null)
+        {
+            String temp = arr[0];
+            arr[0] = arr[1];
+            arr[1] = temp;
+        }
+        /*
+        String[] tempArr = new String[10];
+        Map<Integer, Integer> beforeSort = new HashMap<>();
+        for(int i = 0; i < 10; i++)
+        {
+            beforeSort.put(arr3[i], i);
+        }
+        Arrays.sort(arr3);
+        Map<Integer, Integer> afterSort = new HashMap<>();
+        for(int i = 0; i < 10; i++)
+        {
+            afterSort.put(arr3[i], i);
+        }
+
+        for(int i = 0; i < 10; i++)
+        {
+            int prevInd = beforeSort.get(arr3[i]);
+            int newInd = afterSort.get(arr3[i]);
+            String str = arr[prevInd];
+            tempArr[newInd] = str;
+        }
+        List<String> list = Arrays.asList(tempArr);
+        while (list.get(0) != null)
+        {
+            list.add(list.remove(0));
+        }
+        arr = (String[]) list.toArray();
+         */
+
     }
 
     public void changeTitle()
@@ -109,6 +151,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish2)
@@ -119,6 +162,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish3)
@@ -129,6 +173,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish4)
@@ -139,6 +184,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish5)
@@ -149,6 +195,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish6)
@@ -159,6 +206,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish7)
@@ -169,6 +217,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish8)
@@ -179,6 +228,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish9)
@@ -189,6 +239,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish10)
@@ -199,6 +250,7 @@ public class listAgain extends AppCompatActivity implements View.OnClickListener
             item.putExtra("event", eventName);
             item.putExtra("arr", arr);
             item.putExtra("arr2", arr2);
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.finishButton)

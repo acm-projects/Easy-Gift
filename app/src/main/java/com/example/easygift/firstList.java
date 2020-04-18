@@ -5,17 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
-import android.widget.*;
 
 import java.util.*;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.*;
 
 public class firstList extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseFirestore database;
-    private Map<String, String> map;
     private String s;
     private String eventName;
 
@@ -43,6 +40,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
             item.putExtra("event", eventName);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish2)
@@ -55,6 +54,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish3)
@@ -67,6 +68,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish4)
@@ -79,6 +82,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish5)
@@ -91,6 +96,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish6)
@@ -103,6 +110,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish7)
@@ -115,6 +124,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish8)
@@ -127,6 +138,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish9)
@@ -139,6 +152,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         else if (i == R.id.wish10)
@@ -151,6 +166,8 @@ public class firstList extends AppCompatActivity implements View.OnClickListener
             item.putExtra("arr", arr);
             String[] arr2 = new String[10];
             item.putExtra("arr2", arr2);
+            int[] arr3 = new int[10];
+            item.putExtra("arr3", arr3);
             startActivity(item);
         }
         if (i == R.id.finishButton)

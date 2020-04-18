@@ -27,6 +27,6 @@ public class createFirst extends AppCompatActivity {
                 startActivity(create2);
                 finish();
             }
-        }, 5000);
+        }, 4000);
     }
 }
